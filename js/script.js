@@ -59,7 +59,7 @@ function getInputValue() {
 
     if (!emailList.includes(inputValue)) {
         shake.classList.add('error');
-        alert("Tu non puoi passare.")
+        alert("Tu non puoi passare. Guarda sulla console per suggerimenti")
     } else {
         shake.classList.remove('error');
         const h1 = document.createElement('h1');
@@ -111,7 +111,7 @@ document.getElementById("cpuPoint").innerHTML = cpu;
 
 const rowResult = document.createElement('div');
 rowResult.setAttribute('id', 'rowResult');
-rowResult.setAttribute('class', 'text-center');
+rowResult.setAttribute('class', 'text-center fs-3 pt-3');
 container.append(rowResult);
 
 
