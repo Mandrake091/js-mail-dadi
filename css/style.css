@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(44, 44, 44);
+    width: 100vw;
+    height: 100vh;
+    color: antiquewhite;
+}
+
+.d-block{
+    display: block;
+}
+.btn{
+
+}
+
+h1{
+    
+}
+.color-0{
+    background-color:#f0466f;
+}
+
+.color-1{
+    background-color: #ffd166;
+}
+
+.color-2{
+    background-color: #0bd6a1;
+}
+.color-3{
+    background-color: rgba(19,137,178,255);
+}
