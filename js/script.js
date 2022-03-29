@@ -58,9 +58,8 @@ function getInputValue() {
     const inputValue = document.getElementById("input").value;
 
     if (!emailList.includes(inputValue)) {
-
         shake.classList.add('error');
-
+        alert("Tu non puoi passare.")
     } else {
         shake.classList.remove('error');
         const h1 = document.createElement('h1');
@@ -74,27 +73,47 @@ function getInputValue() {
 
 
 
-let user = 1 + Math.floor(Math.random() * 6);
-let cpu = 1 + Math.floor(Math.random() * 6);
 
 
 
 
 
+function reset() {
 
-
-for (let i = 0; i < 1; i++) {
-
-    if (user > cpu) {
-        console.log("l'utente ha vinto!")
-    } else {
-
-        console.log("la cpu ha vinto!")
-    }
+    let user = 1 + Math.floor(Math.random() * 6);
+    let cpu = 1 + Math.floor(Math.random() * 6);
 
     console.log(user + "user")
     console.log(cpu + "cpu")
+ 
+
+    
+document.getElementById("userPoint").innerHTML = user;
+document.getElementById("cpuPoint").innerHTML = cpu;
+
+    for (let i = 0; i < 1; i++) {
+
+        if (user == cpu) {
+            document.getElementById("rowResult").innerHTML = "Pareggio!";
+            console.log("Pareggio!")
+        } else if (user > cpu) { 
+            document.getElementById("rowResult").innerHTML = "L'utente ha vinto!";
+            console.log("Utente vince")
+        } else {
+            document.getElementById("rowResult").innerHTML = "La cpu ha vinto!";
+            console.log("la cpu ha vinto!")
+        }
+        
+    }
+   
+
 }
+
+const rowResult = document.createElement('div');
+rowResult.setAttribute('id', 'rowResult');
+rowResult.setAttribute('class', 'text-center');
+container.append(rowResult);
+
 
 
 //Format per la visualizzazione dei punteggi
@@ -105,33 +124,51 @@ const h1User = document.createElement('h1');
 const userResult = document.createTextNode("User");
 h1User.appendChild(userResult);
 colGameUser.append(h1User);
-colGameUser.setAttribute('class', 'col-6 text-center d-none');
-const pUser = document.createElement('p').innerHTML=user;
+colGameUser.setAttribute('class', 'col-6 text-center d-none pb-3');
+colGameUser.setAttribute('id', 'col');
 
-colGameUser.append(pUser);
+
+const userPoint = document.createElement('div');
+colGameUser.appendChild(userPoint);
+userPoint.setAttribute('class', 'col-12');
+userPoint.setAttribute('id', 'userPoint');
+
+
+
+
+
+
 
 //Cpu
-
 const colGameCpu = document.createElement('div');
 const h1Cpu = document.createElement('h1');
 const cpuResult = document.createTextNode("Cpu");
 h1Cpu.appendChild(cpuResult);
 colGameCpu.append(h1Cpu);
-colGameCpu.setAttribute('class', 'col-6 text-center d-none');
-const pCpu = document.createElement('p').innerHTML=cpu;
+colGameCpu.setAttribute('class', 'col-6 text-center d-none pb-3');
+colGameCpu.setAttribute('id', 'cpu');
 
-colGameCpu.append(pCpu);
+const cpuPoint = document.createElement('div');
+colGameCpu.appendChild(cpuPoint);
+cpuPoint.setAttribute('class', 'col-12');
+cpuPoint.setAttribute('id', 'cpuPoint');
+
 
 
 row.append(colGameUser);
 row.append(colGameCpu);
 
 
+const playButton = document.createElement('button');
+playButton.setAttribute('class', 'btn btn-success d-none');
+playButton.setAttribute('id', 'playButton');
+
+const textPlay = document.createTextNode("Gioca");
+playButton.append(textPlay);
+row.append(playButton);
 
 
-
-
-
+document.getElementById("playButton").addEventListener("click", reset)
 
 
 
@@ -144,6 +181,7 @@ document.getElementById("btn").addEventListener("click", display);
 
 function display() {
     col.classList.add("d-none");
+    playButton.classList.remove("d-none");
     email.classList.remove("d-none");
     colGameCpu.classList.remove("d-none");
     colGameUser.classList.remove("d-none");
