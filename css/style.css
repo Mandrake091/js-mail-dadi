@@ -11,10 +11,6 @@ body {
     color: antiquewhite;
 }
 
-.d-block {
-    display: block;
-}
-
 .error {
     animation: shake 0.2s ease-in-out 0s 2;
     box-shadow: 0 0 0.5em red;
@@ -44,20 +40,3 @@ body {
     }
 }
 
-h1 {}
-
-.color-0 {
-    background-color: #f0466f;
-}
-
-.color-1 {
-    background-color: #ffd166;
-}
-
-.color-2 {
-    background-color: #0bd6a1;
-}
-
-.color-3 {
-    background-color: rgba(19, 137, 178, 255);
-}

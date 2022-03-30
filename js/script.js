@@ -11,23 +11,16 @@ button.setAttribute('id', 'btn');
 const textButton = document.createTextNode("Cominciamo!");
 button.appendChild(textButton);
 
-
-
 //Colonna di benvenuto
 const col = document.createElement('div');
 col.setAttribute('class', 'col-12 text-center');
 col.append(h1);
 col.append(button);
 
-
-
-
 //Riga 
 const row = document.createElement('div');
 row.setAttribute('class', 'row');
 row.append(col);
-
-
 
 //Container
 const container = document.createElement('div');
@@ -42,8 +35,7 @@ app.append(container);
 //Lista di persone che possono accedere
 const emailList = ["boolean@careers.it", "paolo.cannistraro@live.it", "pincopallo@gmail.com", "classe59@gmail.com", "javascript@js.com"];
 
-console.log(emailList)
-
+console.log(emailList);
 
 //Div con il form e-mail
 const email = document.getElementById('emailForm');
@@ -67,54 +59,39 @@ function getInputValue() {
         h1.appendChild(textH1);
         email.append(h1);
     }
+    
 }
 
-
-
-
-
-
-
-
-
-
+//Funzione per il lancio dei dadi
 function reset() {
-
     let user = 1 + Math.floor(Math.random() * 6);
     let cpu = 1 + Math.floor(Math.random() * 6);
 
-    console.log(user + "user")
-    console.log(cpu + "cpu")
- 
+    console.log(user + "user");
+    console.log(cpu + "cpu");
 
-    
-document.getElementById("userPoint").innerHTML = user;
-document.getElementById("cpuPoint").innerHTML = cpu;
+    document.getElementById("userPoint").innerHTML = user;
+    document.getElementById("cpuPoint").innerHTML = cpu;
 
     for (let i = 0; i < 1; i++) {
 
         if (user == cpu) {
             document.getElementById("rowResult").innerHTML = "Pareggio!";
             console.log("Pareggio!")
-        } else if (user > cpu) { 
+        } else if (user > cpu) {
             document.getElementById("rowResult").innerHTML = "L'utente ha vinto!";
             console.log("Utente vince")
         } else {
             document.getElementById("rowResult").innerHTML = "La cpu ha vinto!";
             console.log("la cpu ha vinto!")
         }
-        
     }
-   
-
 }
 
 const rowResult = document.createElement('div');
 rowResult.setAttribute('id', 'rowResult');
 rowResult.setAttribute('class', 'text-center fs-3 pt-3');
 container.append(rowResult);
-
-
 
 //Format per la visualizzazione dei punteggi
 
@@ -128,15 +105,11 @@ colGameUser.setAttribute('class', 'col-6 text-center d-none pb-3');
 colGameUser.setAttribute('id', 'col');
 
 
+//Punteggio User
 const userPoint = document.createElement('div');
 colGameUser.appendChild(userPoint);
 userPoint.setAttribute('class', 'col-12');
 userPoint.setAttribute('id', 'userPoint');
-
-
-
-
-
 
 
 //Cpu
@@ -148,36 +121,32 @@ colGameCpu.append(h1Cpu);
 colGameCpu.setAttribute('class', 'col-6 text-center d-none pb-3');
 colGameCpu.setAttribute('id', 'cpu');
 
+//Punteggio User
 const cpuPoint = document.createElement('div');
 colGameCpu.appendChild(cpuPoint);
 cpuPoint.setAttribute('class', 'col-12');
 cpuPoint.setAttribute('id', 'cpuPoint');
 
 
-
 row.append(colGameUser);
 row.append(colGameCpu);
 
-
+//Bottone "Lancia un dado"
 const playButton = document.createElement('button');
 playButton.setAttribute('class', 'btn btn-success d-none');
 playButton.setAttribute('id', 'playButton');
 
-const textPlay = document.createTextNode("Gioca");
+//Testo bottone
+const textPlay = document.createTextNode("Lancia i dadi");
 playButton.append(textPlay);
 row.append(playButton);
 
 
-document.getElementById("playButton").addEventListener("click", reset)
-
-
-
-
+document.getElementById("playButton").addEventListener("click", reset);
 
 
 //Funzione per nascondere la prima col e mostrare la seconda
 document.getElementById("btn").addEventListener("click", display);
-
 
 function display() {
     col.classList.add("d-none");
